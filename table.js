@@ -87,6 +87,9 @@ function writeToDocument(url) {
         });
         
         //once the pagination is done, we need to add the new pagination var to the end of the table
-        el.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`;
+        /*TIDYING UP LOOSE ENDS - because we're displaying arrays as strings, commas that separate the values are also displayed at the top of the page
+        to get rid of these, we use the .replace method which takes 2 arguments - 1) what to replace; 2) what to replace it with
+        /,/g means we want to find all commas, not just stop at the first one; "" means we want to replace them with an empty string*/
+        el.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`.replace(/,/g, "");
     });
 }
